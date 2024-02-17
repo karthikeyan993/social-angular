@@ -11,6 +11,7 @@ import { HomeComponent } from './pages/home/home/home.component';
 import { LoginComponent } from './pages/login/login/login.component';
 import { AuthGuard } from './services/auth-guard.service';
 import { AuthService } from './services/auth.services';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { AuthService } from './services/auth.services';
     HomeComponent,
     LoginComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
   providers: [provideClientHydration(), AuthGuard, AuthService],
   bootstrap: [AppComponent],
 })

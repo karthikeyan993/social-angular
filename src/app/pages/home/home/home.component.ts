@@ -8,9 +8,15 @@ import { Router } from '@angular/router';
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
-  constructor(private authservice: AuthService, private router: Router) {}
+  currentUser: string | undefined;
+  constructor(private authservice: AuthService, private router: Router) {
+    this.currentUser = this.authservice.currentUser?.username;
+  }
   onLogOut() {
     this.authservice.logout();
     this.router.navigate(['/login']);
+  }
+  onSomepage() {
+    this.router.navigate(['/somepage']);
   }
 }

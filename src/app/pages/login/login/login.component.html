@@ -1,2 +1,16 @@
 <h3>LOG IN PAGE</h3>
-<button (click)="onLogIn()">Log in</button>
+<form [formGroup]="logForm">
+  <label for="username"> Username</label
+  ><input
+    type="text"
+    name="username"
+    id="username"
+    formControlName="username"
+  />
+  <br />
+  <label for="password"> Password</label>
+  <input type="text" name="password" id="password" formControlName="password" />
+  <br />
+  <button (click)="onLogSubmit()">Submit</button>
+</form>
+<!-- <button (click)="onLogIn()">Log in</button> -->
