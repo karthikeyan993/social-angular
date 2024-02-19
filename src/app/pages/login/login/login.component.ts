@@ -20,15 +20,21 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onLogSubmit() {
+   onLogIn() {
     const username = this.logForm.get('username')?.value;
     const password = this.logForm.get('password')?.value;
 
-    const credentials = { username, password };
-    if (this.authservice.validateLogin(credentials)) {
-      this.router.navigate(['/']);
-    } else {
-      alert('wrong username/password');
-    }
-  }
+    let submit = this.authservice.login(username, password).subscribe(
+      data =>{
+        this.authservice.currentUser = data.email;
+        this.router.navigate(['/']);
+      }, error => {
+        alert("Please enter valid details");
+      }
+    )
+   }
+
+   navigateRegister(){
+    this.router.navigate(['/signup']);
+   }
 }

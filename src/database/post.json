@@ -1,0 +1,52 @@
+{
+  "posts": {
+    "postID1": {
+      "body": "Hello world",
+      "username": "Karthikeyan",
+      "email": "user1@example.com",
+      "likesCount": 10,
+      "commentCount": 5,
+      "friends": [
+        {
+          "name": "Friend 1",
+          "username": "friend1",
+          "imageUrl": "https://example.com/friend1.jpg"
+        },
+        {
+          "name": "Friend 2",
+          "username": "friend2",
+          "imageUrl": "https://example.com/friend2.jpg"
+        },
+        {
+          "name": "Friend 3",
+          "username": "friend3",
+          "imageUrl": "https://example.com/friend3.jpg"
+        }
+      ]
+    },
+    "postID2": {
+      "body": "Another post here.",
+      "username": "user2",
+      "email": "user2@example.com",
+      "likesCount": 5,
+      "commentCount": 2,
+      "friends": [
+        {
+          "name": "Friend 4",
+          "username": "friend4",
+          "imageUrl": "https://example.com/friend4.jpg"
+        },
+        {
+          "name": "Friend 5",
+          "username": "friend5",
+          "imageUrl": "https://example.com/friend5.jpg"
+        },
+        {
+          "name": "Friend 6",
+          "username": "friend6",
+          "imageUrl": "https://example.com/friend6.jpg"
+        }
+      ]
+    }
+  }
+}

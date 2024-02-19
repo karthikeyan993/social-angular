@@ -9,9 +9,11 @@ import { AppComponent } from './app.component';
 import { PagenotfoundComponent } from './pages/pagenotfound/pagenotfound/pagenotfound.component';
 import { HomeComponent } from './pages/home/home/home.component';
 import { LoginComponent } from './pages/login/login/login.component';
-import { AuthGuard } from './services/auth-guard.service';
+import { AuthGuard } from './services/auth-guard.services';
 import { AuthService } from './services/auth.services';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { SignupComponent } from './pages/signup/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +21,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     PagenotfoundComponent,
     HomeComponent,
     LoginComponent,
+    SignupComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
+  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, HttpClientModule],
   providers: [provideClientHydration(), AuthGuard, AuthService],
   bootstrap: [AppComponent],
 })

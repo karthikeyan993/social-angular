@@ -1,0 +1,20 @@
+
+<div class="signup-container">
+    <div class="signup-form">
+      <h3>SIGN UP PAGE</h3>
+      <form [formGroup]="registerForm">
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" formControlName="username" />
+        <br />
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email" formControlName="email" />
+        <br />
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" formControlName="password" />
+        <br />
+        <button (click)="onRegisterSubmit()">Submit</button>
+      </form>
+      <p >Already have an account?</p> <button (click)="navigateLogIn()">Log in</button>
+    </div>
+  </div>
+  

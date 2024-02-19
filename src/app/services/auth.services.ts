@@ -1,34 +1,57 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { EmailValidator } from '@angular/forms';
 import { Router } from '@angular/router';
+import { map } from 'rxjs';
+
+
+export interface AuthData {
+  idToken: string;
+  email: string;
+  refreshToken: string;
+  expiresIn: string;
+  localId: string;
+  registered?: string;
+}
 
 @Injectable()
 export class AuthService {
-  currentUser: { username: string; password: string } | undefined;
+  currentUser: string | undefined;
+  username: string | undefined;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private http: HttpClient) {
     this.currentUser = undefined;
   }
 
-  loggedIn = false;
-  users = [
-    { username: 'karthik', password: 'xyz123' },
-    { username: 'user1', password: 'password' },
-    { username: 'user2', password: 'password' },
-  ];
-  isAuthenticated() {
+  isAuthenticated(){
     const promise = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        // if (this.currentUser != undefined) {
-        //   resolve(true);
-        // } else {
-        //   resolve(false);
-        // }
-        resolve(this.currentUser);
-      }, 500);
+      resolve(this.currentUser);
     });
     return promise;
   }
 
+  // Signup 
+  signup(username:string, email: string, password:string){
+    return this.http.post<AuthData>('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyA5UxjqEyWn4xCu7akl_CgeCIHDU6e_h98 ',{
+      email: email,
+      password: password,
+      returnSecureToken: true
+    });
+  }
+
+  // log in new
+  login(email: string, password:string){
+    return this.http.post<AuthData>('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyA5UxjqEyWn4xCu7akl_CgeCIHDU6e_h98 ',{
+      email: email,
+      password: password,
+      returnSecureToken: true
+    });
+  }
+  
+
+
+  loggedIn = false;
+  
   // login() {
   //   this.loggedIn = true;
   // }
@@ -38,17 +61,53 @@ export class AuthService {
     this.router.navigate(['/login']);
   }
 
-  validateLogin(credentials: { username: string; password: string }) {
-    const isValid = this.users.find(
-      (user) =>
-        user.username === credentials.username &&
-        user.password === credentials.password
-    );
-    if (isValid) {
-      this.currentUser = isValid;
-      return true;
-    } else {
-      return false;
-    }
-  }
+  // getUsername(){
+  //   this.http.get('https://social-angular-76383-default-rtdb.asia-southeast1.firebasedatabase.app/users.json')
+  //   .pipe(
+  //     map(users => {
+  //       const user:any = Object.values(users).find(user => user.email === this.currentUser);
+  //       if (user) {
+  //         this.username = user.username;
+  //       }
+  //     }),
+  //   ).subscribe();
+  // }
+
+  // getUserdata() {
+  //   this.http.get('https://social-angular-76383-default-rtdb.asia-southeast1.firebasedatabase.app/users.json')
+  //   .pipe(
+  //     map(users => {
+  //       const user:any = Object.values(users).find(user => user.email === this.currentUser);
+  //       if (user) {
+  //         this.username = user.username;
+  //       } else {
+
+  //       }
+  //     }),
+
+  //   )
+  //   .subscribe(data=>console.log(data));
+
+  //   return this.http.get<any>('https://social-angular-76383-default-rtdb.asia-southeast1.firebasedatabase.app/users.json')
+  //     .pipe(
+  //       map(users => {
+  //         const userData = Object.values(users).find((user: any) => user.email === this.currentUser);
+  //         return userData;
+  //       })
+  //     );
+  // }
+
+  // validateLogin(credentials: { username: string; password: string }) {
+  //   const isValid = this.users.find(
+  //     (user) =>
+  //       user.username === credentials.username &&
+  //       user.password === credentials.password
+  //   );
+  //   if (isValid) {
+  //     this.currentUser = isValid;
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
 }

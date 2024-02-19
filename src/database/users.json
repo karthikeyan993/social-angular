@@ -1,0 +1,10 @@
+{
+    "users": {
+      "userID1": {
+        "email": "karthik@gmail.com",
+        "username": "Karthikeyan",
+        "imageUrl": "/assets/user1.jpg"
+      }
+    }
+}
+  
