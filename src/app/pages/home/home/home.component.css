@@ -1,0 +1,45 @@
+/* blog-card.component.css */
+.blog-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .blog-card .header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .blog-card .header img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+    
+  }
+  
+  .blog-card .header .user-details span {
+    font-weight: bold;
+    margin-right: 5px;
+  }
+  
+  .blog-card p {
+    margin-bottom: 10px;
+  }
+  
+  .blog-card .footer {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .blog-card .footer span {
+    color: #666;
+  }
+  
+  .blog-card .footer span i {
+    margin-right: 5px;
+  }
+  

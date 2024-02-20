@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { EmailValidator } from '@angular/forms';
 import { Router } from '@angular/router';
 import { map } from 'rxjs';
-
+import { environment } from '../../environment/environment';
 
 export interface AuthData {
   idToken: string;
@@ -32,7 +32,8 @@ export class AuthService {
 
   // Signup 
   signup(username:string, email: string, password:string){
-    return this.http.post<AuthData>('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key= ',{
+    return this.http.post<AuthData>(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${environment.firebaseWebAPIKey}',
+  }`,{
       email: email,
       password: password,
       returnSecureToken: true
@@ -41,7 +42,7 @@ export class AuthService {
 
   // log in new
   login(email: string, password:string){
-    return this.http.post<AuthData>('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=',{
+    return this.http.post<AuthData>(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${environment.firebaseWebAPIKey}`,{
       email: email,
       password: password,
       returnSecureToken: true

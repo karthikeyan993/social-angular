@@ -3,7 +3,7 @@
     "postID1": {
       "body": "Hello world",
       "username": "Karthikeyan",
-      "email": "user1@example.com",
+      "email": "karthik@gmail.com.com",
       "likesCount": 10,
       "commentCount": 5,
       "friends": [
@@ -27,7 +27,7 @@
     "postID2": {
       "body": "Another post here.",
       "username": "user2",
-      "email": "user2@example.com",
+      "email": "karthik@example.com",
       "likesCount": 5,
       "commentCount": 2,
       "friends": [
@@ -47,6 +47,13 @@
           "imageUrl": "https://example.com/friend6.jpg"
         }
       ]
+    }
+  },
+  "users": {
+    "userID1": {
+      "email": "karthik@gmail.com",
+      "username": "Karthikeyan",
+      "imageUrl": "/assets/user1.jpg"
     }
   }
 }

@@ -14,6 +14,7 @@ import { AuthService } from './services/auth.services';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './pages/signup/signup/signup.component';
+import { PostServices } from './services/post.services';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { SignupComponent } from './pages/signup/signup/signup.component';
     SignupComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, HttpClientModule],
-  providers: [provideClientHydration(), AuthGuard, AuthService],
+  providers: [provideClientHydration(), AuthGuard, AuthService, PostServices],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
