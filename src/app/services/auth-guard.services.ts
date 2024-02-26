@@ -3,10 +3,12 @@ import {
   CanActivate,
   Router,
   RouterStateSnapshot,
+  UrlTree,
 } from '@angular/router';
 import { AuthService } from './auth.services';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
+import { map, take } from 'rxjs';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -15,14 +17,16 @@ export class AuthGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): Observable<boolean> | Promise<boolean> | boolean {
-    return this.authService.isAuthenticated().then((authenticated) => {
-      if (authenticated) {
-        return true;
-      } else {
-        this.router.navigate(['/login']);
-        return false; // Move this line inside the else block
-      }
-    });
+  ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean {
+    return this.authService.user.pipe(
+      take(1),
+      map(user =>{
+        const isAuth = !!user;
+        if (isAuth) {
+          return true;
+        }
+        return this.router.createUrlTree(['/login']);
+      })
+    )
   }
 }

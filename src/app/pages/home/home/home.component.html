@@ -4,22 +4,6 @@
 <button (click)="onLogOut()">Log out</button>
 <button (click)="onDummy()">dummy page</button>
 
-<div *ngFor="let card of post">
-  <!-- blog-card.component.html -->
-<div class="blog-card">
-    <div class="header">
-      <img src= '/assets/images/user1.jpg' alt="Profile Picture">
-      <div class="user-details">
-        <span>{{ card.username }}</span>
-        <!-- <span>{{ postTime }}</span> -->
-      </div>
-    </div>
-    <p>{{ card.body }}</p>
-    <div class="footer">
-      <span><i class="fa fa-heart"></i> {{ card.likesCount }}</span>
-      <!-- <span><i class="fa fa-comment"></i> {{ comments }}</span>
-      <span><i class="fa fa-share"></i> {{ shares }}</span> -->
-    </div>
-  </div>
-  
-</div>
+<div>{{fname}}</div>
+<div>{{lname}}</div>
+<img [src]="imageUrl" style="width: 300px;height: 300px;">

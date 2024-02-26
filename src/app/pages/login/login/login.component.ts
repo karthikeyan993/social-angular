@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../services/auth.services';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
+import { tap, pipe } from 'rxjs';
+
 
 @Component({
   selector: 'app-login',
@@ -18,17 +20,17 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    
+  }
 
    onLogIn() {
     const username = this.logForm.get('username')?.value;
     const password = this.logForm.get('password')?.value;
 
-    let submit = this.authservice.login(username, password).subscribe(
-      data =>{
-        this.authservice.currentUser = data.email;
-        this.router.navigate(['/']);
-      }, error => {
+    let submit = this.authservice.login(username, password).subscribe(() =>{
+
+    }, error => {
         alert("Please enter valid details");
       }
     )

@@ -11,17 +11,26 @@ import { Observable } from 'rxjs';
   styleUrl: './home.component.css',
 })
 export class HomeComponent implements OnInit {
-  currentUser: string | undefined;
-  username: string | undefined;
-  post: any[] | undefined;
+  
+  fname: string | undefined;
+  lname: string | undefined;
+  imageUrl: string | undefined;
+
+
   constructor(private authservice: AuthService, private router: Router, private postService:PostServices) {
-    this.currentUser = this.authservice.currentUser;
-    this.username = this.authservice.username; 
-    this.post = undefined;
+   
   }
 
+  
+
   ngOnInit(): void {
-      this.getPosts();
+      // this.getPosts();
+      this.authservice.user.subscribe(user=>{
+        this.fname = user?.firstName;
+        this.lname = user?.lastName;
+        this.imageUrl = user?.imageUrl;
+      });
+    
   }
 
   onLogOut() {
@@ -29,12 +38,7 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
-  getPosts(){
-    this.postService.getPost().subscribe(data=>{
-      this.post = data;
-      console.log(this.post);
-    })
-  }
+
 
   onDummy(){
     this.router.navigate(['/page-notfound']);

@@ -3,8 +3,12 @@
     <div class="signup-form">
       <h3>SIGN UP PAGE</h3>
       <form [formGroup]="registerForm">
-        <label for="username">Username</label>
-        <input type="text" name="username" id="username" formControlName="username" />
+        <label for="fname">First Name</label>
+        <input type="text" name="fname" id="fname" formControlName="fname" />
+        <label for="lname">Last Name</label>
+        <input type="text" name="lname" id="lname" formControlName="lname" />
+        <label for="imageUrl">Image URL</label>
+        <input type="text" name="imageUrl" id="imageUrl" formControlName="imageUrl" />
         <br />
         <label for="email">Email</label>
         <input type="text" name="email" id="email" formControlName="email" />

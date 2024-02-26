@@ -1,59 +1,56 @@
 {
   "posts": {
     "postID1": {
-      "body": "Hello world",
-      "username": "Karthikeyan",
-      "email": "karthik@gmail.com.com",
+      "firstname": "James",
+      "lastname": "Speigel",
+      "email": "james@gmail.com.com",
       "likesCount": 10,
       "commentCount": 5,
       "friends": [
         {
           "name": "Friend 1",
-          "username": "friend1",
+          "firstname": "Friend",
+          "lastname": "1",
           "imageUrl": "https://example.com/friend1.jpg"
         },
         {
           "name": "Friend 2",
-          "username": "friend2",
+          "firstname": "Friend",
+          "lastname": "2",
           "imageUrl": "https://example.com/friend2.jpg"
         },
         {
           "name": "Friend 3",
-          "username": "friend3",
+          "firstname": "Friend",
+          "lastname": "3",
           "imageUrl": "https://example.com/friend3.jpg"
         }
-      ]
-    },
-    "postID2": {
-      "body": "Another post here.",
-      "username": "user2",
-      "email": "karthik@example.com",
-      "likesCount": 5,
-      "commentCount": 2,
-      "friends": [
-        {
-          "name": "Friend 4",
-          "username": "friend4",
-          "imageUrl": "https://example.com/friend4.jpg"
+      ],
+      "posts": {
+        "textpost": {
+          "content": "Some text content"
         },
-        {
-          "name": "Friend 5",
-          "username": "friend5",
-          "imageUrl": "https://example.com/friend5.jpg"
+        "imagepost": {
+          "imageUrl": "https://example.com/image.jpg",
+          "description": "Description of the image"
         },
-        {
-          "name": "Friend 6",
-          "username": "friend6",
-          "imageUrl": "https://example.com/friend6.jpg"
+        "poll": {
+          "question": "What is your favorite color?",
+          "options": [
+            "Red",
+            "Blue",
+            "Green"
+          ]
         }
-      ]
+      }
     }
   },
   "users": {
     "userID1": {
-      "email": "karthik@gmail.com",
-      "username": "Karthikeyan",
-      "imageUrl": "/assets/user1.jpg"
+      "fname":"James",
+      "lname": "Speigel",
+      "imageUrl": "/https://img.freepik.com/free-photo/indian-man-smiling-cheerful-expression-closeup-portrait_53876-129387.jpg",
+      "email": "james@gmail.com"
     }
   }
 }
