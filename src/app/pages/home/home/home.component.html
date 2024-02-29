@@ -3,7 +3,89 @@
 <!-- <h3 *ngIf="username!=undefined">Welcome back {{ username }}</h3> -->
 <button (click)="onLogOut()">Log out</button>
 <button (click)="onDummy()">dummy page</button>
-
+<!-- <div>
+    <img  style="width: 300px;height: 300px; object-fit: cover;">
+</div>
 <div>{{fname}}</div>
 <div>{{lname}}</div>
-<img [src]="imageUrl" style="width: 300px;height: 300px;">
+ <div class="post-card">
+        <header class="post-header">
+          <img src="profile-picture.jpg" alt="Profile Picture" class="profile-pic"> 
+          <div class="profile-info">
+            <h3 class="profile-name"></h3> 
+            <p class="post-time"></p> 
+          </div>
+        </header>
+      
+        <section class="post-body">
+          <div class="text-post">
+            <p></p> 
+          </div>
+      
+          <div class="image-post">
+            <img src="post-image.jpg" alt="Post Image" class="post-image">
+            <p class="image-description"></p> 
+          </div>
+      
+          <div class="poll">
+            <p class="poll-question"></p> 
+            <div class="poll-answers">
+              </div>
+          </div>
+        </section>
+      
+        <footer class="post-footer">
+          <div class="likes-section">
+            <button class="like-button">
+              <i class="heart-icon"></i> <span class="like-count"></span>
+            </button>
+            <div class="liked-by">
+              </div>
+            <p class="liked-by-text"></p> 
+          </div>
+          <div class="comments-share-section">
+            <p class="comment-count"><i class="comment-icon"></i> </p>
+            <p class="share-count"><i class="share-icon"></i> </p>
+          </div>
+        </footer>
+      </div>
+ -->
+
+<div class="profile-container">
+    <img [src]="imageUrl" alt="Profile Picture" class="profile-picture">
+    <h2 class="profile-name">{{ fname }} {{ lname }}</h2>
+</div>
+  
+<div class="post-wrapper">
+    <div class="post-card" *ngFor="let card of post">
+        <header class="post-header">
+          <img [src]="imageUrl" alt="Profile Picture" class="profile-pic"> 
+          <div class="profile-info">
+            <h3 class="profile-name">{{ fname }} {{ lname }}</h3> 
+            <p class="post-time">10 hours ago</p> 
+          </div>
+        </header>
+      
+        <section class="post-body">
+          <div class="text-post">
+            <p>{{card.posts.textpost.content}}</p> 
+          </div>
+        </section>
+      
+        <footer class="post-footer">
+          <div class="likes-section">
+            <button class="like-button">
+              <i class="heart-icon" style="color: #000000;"></i> <span class="like-count"></span>
+            </button>
+            <div class="liked-by">
+              </div>
+            <p class="liked-by-text"></p> 
+          </div>
+          <div class="comments-share-section">
+            <p class="comment-count"><i class="comment-icon"></i> </p>
+            <p class="share-count"><i class="share-icon"></i> </p>
+          </div>
+        </footer>
+      </div>
+      
+</div>

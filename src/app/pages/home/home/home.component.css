@@ -1,45 +1,94 @@
-/* blog-card.component.css */
-.blog-card {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 20px;
-    margin-bottom: 20px;
-  }
-  
-  .blog-card .header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
-  .blog-card .header img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 10px;
-    object-fit: cover;
-    
-  }
-  
-  .blog-card .header .user-details span {
-    font-weight: bold;
-    margin-right: 5px;
-  }
-  
-  .blog-card p {
-    margin-bottom: 10px;
-  }
-  
-  .blog-card .footer {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .blog-card .footer span {
-    color: #666;
-  }
-  
-  .blog-card .footer span i {
-    margin-right: 5px;
-  }
-  
+.profile-container {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff; /* Example background color */
+  text-align: center;
+}
+
+.profile-picture {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid white; 
+  object-fit: cover; /* Keeps image aspect ratio while cropping */
+  text-align: center;
+}
+
+.profile-name {
+  font-weight: bold;
+}
+
+.posts-container {  /* Styles for optional container */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.post-card {
+
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  max-width: 500px; 
+  margin: 16px auto;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.post-header {
+  display: flex; /* Arranges profile image and info side-by-side */
+  align-items: center; /* Vertically centers the content */
+  margin-bottom: 15px;
+}
+
+.profile-pic {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.profile-info {
+  font-weight: bold; /* Emphasize profile name */
+}
+
+.post-time {
+  color: #666; /* Grayed-out for subtle timestamp */
+}
+
+.post-body {
+  margin-bottom: 15px;
+}
+
+.poll-answers {
+  margin-top: 10px; 
+}
+
+.post-footer {
+  display: flex;
+  justify-content: space-between; /* Separates likes and comments */
+  align-items: center;
+}
+
+.likes-section,
+.comments-share-section {
+  display: flex;
+  align-items: center;
+}
+
+.like-button {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.heart-icon {
+  color: red;
+  margin-right: 5px;
+}

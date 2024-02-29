@@ -5,3 +5,8 @@ body {
     font-family: Arial, sans-serif;
     /* Light gray background */
   }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Optional: includes padding and border in the element's total width and height */
+}

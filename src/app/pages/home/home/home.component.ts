@@ -4,33 +4,33 @@ import { Router } from '@angular/router';
 import { PostServices } from '../../../services/post.services';
 import { Observable } from 'rxjs';
 
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
 export class HomeComponent implements OnInit {
-  
   fname: string | undefined;
   lname: string | undefined;
   imageUrl: string | undefined;
+  post: any = [];
 
-
-  constructor(private authservice: AuthService, private router: Router, private postService:PostServices) {
-   
-  }
-
-  
+  constructor(
+    private authservice: AuthService,
+    private router: Router,
+    private postService: PostServices
+  ) {}  
 
   ngOnInit(): void {
-      // this.getPosts();
-      this.authservice.user.subscribe(user=>{
-        this.fname = user?.firstName;
-        this.lname = user?.lastName;
-        this.imageUrl = user?.imageUrl;
-      });
-    
+    this.postService.getPost().subscribe((data) => {
+      this.post = data;
+      console.log('this is post', this.post);
+    });
+    this.authservice.user.subscribe((user) => {
+      this.fname = user?.firstName;
+      this.lname = user?.lastName;
+      this.imageUrl = user?.imageUrl;
+    });
   }
 
   onLogOut() {
@@ -38,10 +38,7 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
-
-
-  onDummy(){
+  onDummy() {
     this.router.navigate(['/page-notfound']);
   }
-  
 }

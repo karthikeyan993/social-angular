@@ -43,6 +43,138 @@
           ]
         }
       }
+    },
+    "postID2": {
+      "firstname": "James",
+      "lastname": "Speigel",
+      "email": "james@gmail.com.com",
+      "likesCount": 10,
+      "commentCount": 5,
+      "friends": [
+        {
+          "name": "Friend 1",
+          "firstname": "Friend",
+          "lastname": "1",
+          "imageUrl": "https://example.com/friend1.jpg"
+        },
+        {
+          "name": "Friend 2",
+          "firstname": "Friend",
+          "lastname": "2",
+          "imageUrl": "https://example.com/friend2.jpg"
+        },
+        {
+          "name": "Friend 3",
+          "firstname": "Friend",
+          "lastname": "3",
+          "imageUrl": "https://example.com/friend3.jpg"
+        }
+      ],
+      "posts": {
+        "textpost": {
+          "content": "A weathered map lay forgotten on the dusty attic floor, its faded lines hinting at untold adventures and hidden secrets.Let me know if you'd like more options or something with a different vibe!"
+        },
+        "imagepost": {
+          "imageUrl": "https://example.com/image.jpg",
+          "description": "Description of the image"
+        },
+        "poll": {
+          "question": "What is your favorite color?",
+          "options": [
+            "Red",
+            "Blue",
+            "Green"
+          ]
+        }
+      }
+    },
+    "postID3": {
+      "firstname": "James",
+      "lastname": "Speigel",
+      "email": "james@gmail.com.com",
+      "likesCount": 10,
+      "commentCount": 5,
+      "friends": [
+        {
+          "name": "Friend 1",
+          "firstname": "Friend",
+          "lastname": "1",
+          "imageUrl": "https://example.com/friend1.jpg"
+        },
+        {
+          "name": "Friend 2",
+          "firstname": "Friend",
+          "lastname": "2",
+          "imageUrl": "https://example.com/friend2.jpg"
+        },
+        {
+          "name": "Friend 3",
+          "firstname": "Friend",
+          "lastname": "3",
+          "imageUrl": "https://example.com/friend3.jpg"
+        }
+      ],
+      "posts": {
+        "textpost": {
+          "content": "The fluffy clouds danced across the azure sky, casting playful shadows on the vibrant meadow where wildflowers swayed in a gentle breeze."
+        },
+        "imagepost": {
+          "imageUrl": "https://example.com/image.jpg",
+          "description": "Description of the image"
+        },
+        "poll": {
+          "question": "What is your favorite color?",
+          "options": [
+            "Red",
+            "Blue",
+            "Green"
+          ]
+        }
+      }
+    },
+    "postID4": {
+      "firstname": "James",
+      "lastname": "Speigel",
+      "email": "james@gmail.com.com",
+      "likesCount": 10,
+      "commentCount": 5,
+      "friends": [
+        {
+          "name": "Friend 1",
+          "firstname": "Friend",
+          "lastname": "1",
+          "imageUrl": "https://example.com/friend1.jpg"
+        },
+        {
+          "name": "Friend 2",
+          "firstname": "Friend",
+          "lastname": "2",
+          "imageUrl": "https://example.com/friend2.jpg"
+        },
+        {
+          "name": "Friend 3",
+          "firstname": "Friend",
+          "lastname": "3",
+          "imageUrl": "https://example.com/friend3.jpg"
+        }
+      ],
+      "posts": {
+        "textpost": {
+          "content": "The purple octopus enthusiastically juggled rubber chickens while humming an off-key melody, oblivious to the curious stares of nearby seagulls."
+        },
+        "imagepost": {
+          "imageUrl": "https://example.com/image.jpg",
+          "description": "Description of the image"
+        },
+        "poll": {
+          "question": "What is your favorite color?",
+          "options": [
+            "Red",
+            "Blue",
+            "Green"
+          ]
+        }
+      }
     }
   },
   "users": {
