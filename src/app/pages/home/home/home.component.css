@@ -37,6 +37,9 @@
   bottom: 20px;
   right: 20px;
 }
+.refresh-btn {
+  right: 100px !important;
+}
 .new-post-button:hover {
   background-color: #535353;
 }

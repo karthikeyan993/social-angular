@@ -15,7 +15,11 @@ export class HomeComponent implements OnInit {
   imageUrl: string | undefined;
   post: any = [];
   showModalValue: boolean = false;
-  constructor(private authservice: AuthService, private router: Router) {}
+  constructor(
+    private authservice: AuthService,
+    private router: Router,
+    private postService: PostServices
+  ) {}
 
   ngOnInit(): void {
     this.authservice.user.subscribe((user) => {
@@ -33,5 +37,8 @@ export class HomeComponent implements OnInit {
   }
   closeModalHome() {
     this.showModalValue = false;
+  }
+  refreshPage() {
+    this.postService.fetchPost();
   }
 }

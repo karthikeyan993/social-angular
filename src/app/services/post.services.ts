@@ -1,8 +1,11 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy, OnInit } from '@angular/core';
 import { AuthService } from './auth.services';
-import { Observable, filter, map, pipe } from 'rxjs';
+import { Observable, filter, map, pipe, publishReplay, refCount } from 'rxjs';
 import { User } from '../model/user.model';
+import { Subscription, Subject } from 'rxjs';
+import { Output, EventEmitter } from '@angular/core';
+import { error } from 'console';
 
 export interface Post {
   userId: string;
@@ -22,18 +25,36 @@ export interface Post {
 }
 
 @Injectable()
-export class PostServices {
+export class PostServices implements OnDestroy {
   userId: string | null | undefined = null;
   token: string | null | undefined = null;
+  post: any = [];
+  postSubscription: Subscription | undefined;
+  postUpdated = new Subject<void>();
+
   constructor(private authService: AuthService, private http: HttpClient) {
     console.log('post service', this.authService.user);
     this.authService.user.subscribe((user) => {
       this.userId = user?.id;
       this.token = user?.token;
+      // this.fetchPost();
+    });
+    this.fetchPost();
+  }
+
+  fetchPost(): void {
+    if (this.postSubscription) {
+      this.postSubscription.unsubscribe();
+    }
+
+    this.postSubscription = this.getPost().subscribe((data) => {
+      this.post = data;
+      console.log('Get data from fetch post', data);
+      this.postUpdated.next();
     });
   }
 
-  getPost(): Observable<any> {
+  getPost(): Observable<any[]> {
     return this.http
       .get<any[]>(
         `https://social-angular-76383-default-rtdb.asia-southeast1.firebasedatabase.app/posts.json?auth=${this.token}&orderBy="userId"&equalTo="${this.userId}"`
@@ -68,5 +89,9 @@ export class PostServices {
         },
       }
     );
+  }
+
+  ngOnDestroy(): void {
+    // this.postSubscription?.unsubscribe();
   }
 }

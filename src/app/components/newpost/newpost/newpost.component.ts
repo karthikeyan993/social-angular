@@ -58,7 +58,10 @@ export class NewpostComponent implements OnInit {
         },
       },
     };
-    this.postService.SendPost(postData).subscribe();
-    this.closeModal();
+    this.postService.SendPost(postData).subscribe(() => {
+      console.log('fetch called in new post');
+      this.postService.fetchPost();
+      this.closeModal();
+    });
   }
 }

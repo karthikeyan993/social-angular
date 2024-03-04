@@ -9,6 +9,9 @@
   (closeModalEvent)="closeModalHome()"
 ></app-newpost>
 <div>
+  <button class="new-post-button refresh-btn" (click)="refreshPage()">
+    <i class="fas fa-sync-alt"></i>
+  </button>
   <button class="new-post-button" (click)="newPostHandler()">
     <i class="fas fa-plus"></i>
   </button>
