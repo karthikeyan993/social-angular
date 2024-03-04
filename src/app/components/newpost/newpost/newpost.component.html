@@ -1,0 +1,66 @@
+<!-- new-post-dialog.component.html -->
+
+<div class="modal-background" (click)="closeModal()" *ngIf="showModal"></div>
+<div class="modal-container" *ngIf="showModal">
+  <form [formGroup]="postForm">
+    <h2>New Post</h2>
+
+    <!-- Post type selection -->
+    <div class="post-type">
+      <label>
+        <input type="radio" formControlName="postType" value="text" /> Text
+      </label>
+      <label>
+        <input type="radio" formControlName="postType" value="image" /> Image
+      </label>
+      <label>
+        <input type="radio" formControlName="postType" value="poll" /> Poll
+      </label>
+    </div>
+
+    <!-- Text post -->
+    <div *ngIf="postForm.get('postType')?.value === 'text'">
+      <textarea
+        formControlName="textContent"
+        placeholder="What's on your mind?"
+        style="resize: none"
+      ></textarea>
+    </div>
+
+    <!-- Image post -->
+    <div *ngIf="postForm.get('postType')?.value === 'image'">
+      <input
+        type="text"
+        formControlName="imageDescription"
+        placeholder="Image description"
+      />
+      <input type="text" formControlName="imageURL" placeholder="Image URL" />
+    </div>
+
+    <!-- Poll post -->
+    <div *ngIf="postForm.get('postType')?.value === 'poll'">
+      <input
+        type="text"
+        formControlName="pollQuestion"
+        placeholder="Poll question"
+      />
+      <div formArrayName="pollOptions">
+        <div *ngFor="let option of pollOptionsControls.controls; let i = index">
+          <input
+            class="poll-option-input"
+            type="text"
+            [formControlName]="i"
+            placeholder="Option {{ i + 1 }}"
+          />
+          <button class="btn" type="button" (click)="removePollOption(i)">
+            Remove
+          </button>
+        </div>
+      </div>
+      <button type="button" (click)="addPollOption()">Add Option</button>
+    </div>
+
+    <!-- Submit button -->
+    <button type="submit" class="post-btn" (click)="onSubmit()">Post</button>
+  </form>
+</div>
