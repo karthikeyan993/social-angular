@@ -15,6 +15,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './pages/signup/signup/signup.component';
 import { PostServices } from './services/post.services';
+import { HeaderComponent } from './components/header/header/header.component';
+import { FooterComponent } from './components/footer/footer/footer.component';
+import { PostsComponent } from './components/posts/posts/posts.component';
+import { User } from './model/user.model';
+import { NewpostComponent } from './components/newpost/newpost/newpost.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +28,10 @@ import { PostServices } from './services/post.services';
     HomeComponent,
     LoginComponent,
     SignupComponent,
+    HeaderComponent,
+    FooterComponent,
+    PostsComponent,
+    NewpostComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, HttpClientModule],
   providers: [provideClientHydration(), AuthGuard, AuthService, PostServices],

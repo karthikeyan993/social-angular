@@ -179,16 +179,15 @@ export class AuthService {
   ) {
     this.http
       .get<any>(
-        `https://social-angular-76383-default-rtdb.asia-southeast1.firebasedatabase.app/users.json?orderBy="email"&equalTo="${email}"`
+        `https://social-angular-76383-default-rtdb.asia-southeast1.firebasedatabase.app/users/${userId}.json?auth=${token}`
       )
       .subscribe((userData) => {
         // Extract required details from userData
         console.log('fdfdfd', userData);
-        const userKey = Object.keys(userData)[0]; // Assuming there's only one user with the given email
-        const getUser = userData[userKey];
-        const firstName = getUser && getUser.fname ? getUser.fname : '';
-        const lastName = getUser && getUser.lname ? getUser.lname : '';
-        const imageUrl = getUser && getUser.imageUrl ? getUser.imageUrl : '';
+
+        const firstName = userData.fname;
+        const lastName = userData.lname;
+        const imageUrl = userData.imageUrl;
         const expirationDate = new Date(
           new Date().getTime() + expiresIn * 1000
         );

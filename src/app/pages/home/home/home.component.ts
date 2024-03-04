@@ -14,18 +14,10 @@ export class HomeComponent implements OnInit {
   lname: string | undefined;
   imageUrl: string | undefined;
   post: any = [];
-
-  constructor(
-    private authservice: AuthService,
-    private router: Router,
-    private postService: PostServices
-  ) {}  
+  showModalValue: boolean = false;
+  constructor(private authservice: AuthService, private router: Router) {}
 
   ngOnInit(): void {
-    this.postService.getPost().subscribe((data) => {
-      this.post = data;
-      console.log('this is post', this.post);
-    });
     this.authservice.user.subscribe((user) => {
       this.fname = user?.firstName;
       this.lname = user?.lastName;
@@ -33,12 +25,13 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  onLogOut() {
-    this.authservice.logout();
-    this.router.navigate(['/login']);
-  }
-
   onDummy() {
     this.router.navigate(['/page-notfound']);
+  }
+  newPostHandler() {
+    this.showModalValue = true;
+  }
+  closeModalHome() {
+    this.showModalValue = false;
   }
 }

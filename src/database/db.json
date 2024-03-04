@@ -1,0 +1,31 @@
+{
+  "posts": {
+    "postID1": {
+      "userId": "RlNjjwuMFJd2gIZGyPKfJb9QzZ23",
+      "firstname": "Firstname",
+      "lastname": "Lastname",
+      "email": "dummy@gmail.com",
+      "posts": {
+        "textpost": {
+          "content": "Some text content"
+        },
+        "imagepost": {
+          "imageUrl": "https://example.com/image.jpg",
+          "description": "Description of the image"
+        },
+        "poll": {
+          "question": "What is your favorite color?",
+          "options": ["Red", "Blue", "Green"]
+        }
+      }
+    }
+  },
+  "users": {
+    "RlNjjwuMFJd2gIZGyPKfJb9QzZ23": {
+      "fname": "Firstname",
+      "lname": "Lastname",
+      "imageUrl": "https://img.freepik.com/free-photo/indian-man-smiling-cheerful-expression-closeup-portrait_53876-129387.jpg",
+      "email": "dummy@gmail.com"
+    }
+  }
+}

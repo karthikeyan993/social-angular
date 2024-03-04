@@ -1,0 +1,15 @@
+.logout-button {
+  position: fixed;
+  top: 20px; /* Adjust vertical position as needed */
+  right: 20px; /* Adjust horizontal position as needed */
+  background-color: #333; /* Primary color */
+  color: #fff; /* Text color */
+  padding: 10px 20px; /* Adjust padding as needed */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background-color: #555; /* Darken color on hover */
+}

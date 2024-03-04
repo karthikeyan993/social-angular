@@ -1,12 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    /* Light gray background */
-  }
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; /* Optional: includes padding and border in the element's total width and height */
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  /* Light gray background */
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Optional: includes padding and border in the element's total width and height */
 }
