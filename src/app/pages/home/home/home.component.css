@@ -40,6 +40,10 @@
 .refresh-btn {
   right: 100px !important;
 }
+.clear-btn {
+  right: 200px;
+  background-color: red;
+}
 .new-post-button:hover {
   background-color: #535353;
 }

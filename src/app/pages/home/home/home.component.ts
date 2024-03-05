@@ -39,6 +39,7 @@ export class HomeComponent implements OnInit {
     this.showModalValue = false;
   }
   refreshPage() {
+    console.log("click")
     this.postService.fetchPost();
   }
 }

@@ -52,7 +52,6 @@ export class AuthService {
       )
       .pipe(
         tap((resData) => {
-          console.log('sign up pipe');
           this.handleAuthentication(
             userData.fname,
             userData.lname,
@@ -152,7 +151,6 @@ export class AuthService {
     token: string,
     expiresIn: number
   ) {
-    console.log('register handle called');
     const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
     const user = new User(
       fname,
@@ -183,8 +181,6 @@ export class AuthService {
       )
       .subscribe((userData) => {
         // Extract required details from userData
-        console.log('fdfdfd', userData);
-
         const firstName = userData.fname;
         const lastName = userData.lname;
         const imageUrl = userData.imageUrl;

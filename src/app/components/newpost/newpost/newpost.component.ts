@@ -36,7 +36,6 @@ export class NewpostComponent implements OnInit {
     this.pollOptionsControls.removeAt(index);
   }
   closeModal() {
-    console.log('close modal in new post');
     this.closeModalEvent.emit();
   }
   onSubmit() {
@@ -59,7 +58,6 @@ export class NewpostComponent implements OnInit {
       },
     };
     this.postService.SendPost(postData).subscribe(() => {
-      console.log('fetch called in new post');
       this.postService.fetchPost();
       this.closeModal();
     });

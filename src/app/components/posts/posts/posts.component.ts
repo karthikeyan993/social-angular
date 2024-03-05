@@ -25,17 +25,14 @@ export class PostsComponent implements OnInit, OnDestroy {
       this.fname = user?.firstName;
       this.lname = user?.lastName;
       this.imageUrl = user?.imageUrl;
-    });
-
-    this.postUpdateSubscription = this.postService.postUpdated.subscribe(() => {
-      console.log(
-        'post component received from post service',
-        this.postService.post
+      this.postUpdateSubscription = this.postService.postUpdated.subscribe(
+        () => {
+          this.post = this.postService.post;
+        }
       );
-      this.post = this.postService.post;
-      console.log('post componet ng init', this.post);
     });
   }
+
   ngOnDestroy(): void {
     this.postUpdateSubscription?.unsubscribe();
   }
