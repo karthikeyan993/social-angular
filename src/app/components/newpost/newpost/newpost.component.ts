@@ -14,7 +14,7 @@ export class NewpostComponent implements OnInit {
   @Input() showModal: boolean | undefined;
   constructor(private fb: FormBuilder, private postService: PostServices) {
     this.postForm = this.fb.group({
-      postType: ['text'],
+      postType: ['TEXT'],
       textContent: [''],
       imageDescription: [''],
       imageURL: [''],
@@ -43,6 +43,7 @@ export class NewpostComponent implements OnInit {
     console.log(newPostFormData);
     const postData = {
       userId: '',
+      postType: newPostFormData.postType,
       posts: {
         textpost: {
           content: newPostFormData.textContent,

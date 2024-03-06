@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { PostServices } from '../../../services/post.services';
 import { AuthService } from '../../../services/auth.services';
 import { Subscription } from 'rxjs';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-posts',
@@ -13,8 +14,10 @@ export class PostsComponent implements OnInit, OnDestroy {
   fname: string | undefined = undefined;
   lname: string | undefined = undefined;
   imageUrl: string | undefined = undefined;
+  postype: string | undefined = undefined;
+  pollForm!: FormGroup;
   postUpdateSubscription: Subscription | undefined;
-
+  i: number = 0;
   constructor(
     private postService: PostServices,
     private authService: AuthService
@@ -28,9 +31,22 @@ export class PostsComponent implements OnInit, OnDestroy {
       this.postUpdateSubscription = this.postService.postUpdated.subscribe(
         () => {
           this.post = this.postService.post;
+          console.log('post is ', this.post);
         }
       );
     });
+    this.pollForm = new FormGroup({
+      options: new FormControl(null, Validators.required),
+    });
+  }
+
+  submitVote() {
+    if (this.pollForm.valid) {
+      const selectedOption = this.pollForm.value.options;
+      console.log('Selected option:', selectedOption);
+    } else {
+      alert('Please select an option before voting.');
+    }
   }
 
   ngOnDestroy(): void {

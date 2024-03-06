@@ -3,9 +3,16 @@ import { Injectable, OnDestroy } from '@angular/core';
 import { AuthService } from './auth.services';
 import { Observable, filter, map, pipe, Subscription, Subject } from 'rxjs';
 
+export enum PostType {
+  TEXT = 'text',
+  IMAGE = 'image',
+  POLL = 'poll',
+}
+
 export interface Post {
   userId: string;
   timestamp?: Date;
+  postType: PostType;
   posts: {
     textpost: {
       content?: string;
@@ -79,11 +86,13 @@ export class PostServices implements OnDestroy {
 
   SendPost(formData: Post): Observable<any> {
     const timestamp = new Date().toISOString();
+    console.log('fdkfhdhf', formData);
     return this.http.post<any[]>(
       `https://social-angular-76383-default-rtdb.asia-southeast1.firebasedatabase.app/posts.json?auth=${this.token}`,
       {
         userId: this.userId,
         timestamp: timestamp,
+        postType: formData.postType,
         posts: {
           textpost: {
             content: formData.posts.textpost?.content,

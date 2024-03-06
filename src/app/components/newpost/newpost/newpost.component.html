@@ -8,18 +8,18 @@
     <!-- Post type selection -->
     <div class="post-type">
       <label>
-        <input type="radio" formControlName="postType" value="text" /> Text
+        <input type="radio" formControlName="postType" value="TEXT" /> Text
       </label>
       <label>
-        <input type="radio" formControlName="postType" value="image" /> Image
+        <input type="radio" formControlName="postType" value="IMAGE" /> Image
       </label>
       <label>
-        <input type="radio" formControlName="postType" value="poll" /> Poll
+        <input type="radio" formControlName="postType" value="POLL" /> Poll
       </label>
     </div>
 
     <!-- Text post -->
-    <div *ngIf="postForm.get('postType')?.value === 'text'">
+    <div *ngIf="postForm.get('postType')?.value === 'TEXT'">
       <textarea
         formControlName="textContent"
         placeholder="What's on your mind?"
@@ -28,7 +28,7 @@
     </div>
 
     <!-- Image post -->
-    <div *ngIf="postForm.get('postType')?.value === 'image'">
+    <div *ngIf="postForm.get('postType')?.value === 'IMAGE'">
       <input
         type="text"
         formControlName="imageDescription"
@@ -38,7 +38,7 @@
     </div>
 
     <!-- Poll post -->
-    <div *ngIf="postForm.get('postType')?.value === 'poll'">
+    <div *ngIf="postForm.get('postType')?.value === 'POLL'">
       <input
         type="text"
         formControlName="pollQuestion"

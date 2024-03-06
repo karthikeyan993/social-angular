@@ -9,8 +9,31 @@
     </header>
 
     <section class="post-body">
-      <div class="text-post">
+      <div class="text-post" *ngIf="card.postType === 'TEXT'">
         <p>{{ card.posts.textpost.content }}</p>
+      </div>
+      <div class="image-post" *ngIf="card.postType === 'IMAGE'">
+        <p class="image-description">{{ card.posts.imagepost.description }}</p>
+        <img
+          class="post-image"
+          [src]="card.posts.imagepost.imageUrl"
+          alt="Image Description"
+        />
+      </div>
+      <div class="poll-post" *ngIf="card.postType === 'POLL'">
+        <p class="poll-question">{{ card.posts.poll.question }}</p>
+        <form [formGroup]="pollForm">
+          <div
+            class="poll-options"
+            *ngFor="let option of card.posts.poll.options"
+          >
+            <input type="radio" [value]="option" formControlName="options" />
+            <label>{{ option }}</label>
+          </div>
+          <button type="submit" (click)="submitVote()" class="vote-button">
+            Vote
+          </button>
+        </form>
       </div>
     </section>
 
